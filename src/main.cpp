@@ -2531,6 +2531,22 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             }
         }
 
+        // Another Ghostlander's quick hack to deal with nodes advertising
+        // compatible version numbers while confusing our Qt client;
+        // if their nStartingHeight is much higher of what we estimate it
+        // to be, disconnect them.
+        // nRefHeight and nRefTime should be updated periodically
+        long nRefHeight = 88000, nRefTime = 1380376328; // block #88000
+        long nOurTime = GetAdjustedTime();
+        long nHeightOffset = (nOurTime - nRefTime) / nTargetSpacing_retar_two;
+        // Add 5000 blocks to be safe
+        if(pfrom->nStartingHeight > (nRefHeight + nHeightOffset + 5000)) {
+            printf("partner %s reporting block chain height %i, estimated height is %i; disconnecting\n",
+              pfrom->addr.ToString().c_str(), pfrom->nStartingHeight, nRefHeight + nHeightOffset);
+            pfrom->fDisconnect = true;
+            return false;
+        }
+
         // Ask the first connected node for block updates
         static int nAskedForBlocks = 0;
         if (!pfrom->fClient && !pfrom->fOneShot &&
