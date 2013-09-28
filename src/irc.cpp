@@ -219,23 +219,22 @@ void ThreadIRCSeed2(void* parg)
     int nErrorWait = 10;
     int nRetryWait = 10;
 
-    while (!fShutdown)
-    {
-        CService addrConnect("199.201.107.112", 6667);
-
-        CService addrIRC("irc.phenixcoin.com", 6667, true);
-        if (addrIRC.IsValid())
-            addrConnect = addrIRC;
+    while(!fShutdown) {
 
         SOCKET hSocket;
-        if (!ConnectSocket(addrConnect, hSocket))
-        {
-            printf("IRC connect failed\n");
-            nErrorWait = nErrorWait * 11 / 10;
-            if (Wait(nErrorWait += 60))
-                continue;
-            else
-                return;
+        CService addrConnect("irc.lfnet.org", 6667, true);
+
+        if(!ConnectSocket(addrConnect, hSocket)) {
+            addrConnect = CService("pelican.heliacal.net", 6667, true);
+            if(!ConnectSocket(addrConnect, hSocket)) {
+                addrConnect = CService("giraffe.heliacal.net", 6667, true);
+                if(!ConnectSocket(addrConnect, hSocket)) {
+                    printf("IRC connect failed!\n");
+                    nErrorWait = nErrorWait * 11 / 10;
+                    if(Wait(nErrorWait += 60)) continue;
+                    else return;
+                }
+            }
         }
 
         if (!RecvUntil(hSocket, "Found your hostname", "using your IP address instead", "Couldn't look up your hostname", "ignoring hostname"))
@@ -294,14 +293,14 @@ void ThreadIRCSeed2(void* parg)
         }
 
         if (fTestNet) {
-            Send(hSocket, "JOIN #phenixcoinTEST3\r");
-            Send(hSocket, "WHO #phenixcoinTEST3\r");
+            Send(hSocket, "JOIN #phoenixcoinTEST3\r");
+            Send(hSocket, "WHO #phoenixcoinTEST3\r");
         } else {
             // randomly join #phenixcoin00-#phenixcoin99
-            int channel_number = GetRandInt(100);
-            channel_number = 0; // Phenixcoin: for now, just use one channel
-            Send(hSocket, strprintf("JOIN #phenixcoin%02d\r", channel_number).c_str());
-            Send(hSocket, strprintf("WHO #phenixcoin%02d\r", channel_number).c_str());
+            // int channel_number = GetRandInt(100);
+            int channel_number = 0;
+            Send(hSocket, strprintf("JOIN #phoenixcoin%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("WHO #phoenixcoin%02d\r", channel_number).c_str());
         }
 
         int64 nStart = GetTime();
