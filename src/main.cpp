@@ -2457,12 +2457,18 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             return false;
         }
 
-        if(nBestHeight >= nRetargetSwitchHeight){
-            if (pfrom->nVersion < RETAR_PROTO_VERSION){
-                printf("partner %s using obsolete version %i; disconnecting\n", pfrom->addr.ToString().c_str(), pfrom->nVersion);
-                pfrom->fDisconnect = true;
-                return false;
-            }
+        // Do not connect to these clients as they're not Phoenixcoin ones
+        if(pfrom->nVersion > RETAR_PROTO_VERSION) {
+            printf("partner %s using incompatible version %i; disconnecting\n", pfrom->addr.ToString().c_str(), pfrom->nVersion);
+            pfrom->fDisconnect = true;
+            return false;
+        }
+
+        // Do not connect to these clients as they're not Phoenixcoin ones or too old
+        if(pfrom->nVersion <= 60001) {
+            printf("partner %s using incompatible version %i; disconnecting\n", pfrom->addr.ToString().c_str(), pfrom->nVersion);
+            pfrom->fDisconnect = true;
+            return false;
         }
 
         if (pfrom->nVersion == 10300)

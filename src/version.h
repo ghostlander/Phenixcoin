@@ -15,7 +15,7 @@
 #define CLIENT_VERSION_MAJOR       0
 #define CLIENT_VERSION_MINOR       6
 #define CLIENT_VERSION_REVISION    4
-#define CLIENT_VERSION_BUILD       11
+#define CLIENT_VERSION_BUILD       12
 
 static const int CLIENT_VERSION =
                            1000000 * CLIENT_VERSION_MAJOR
@@ -31,12 +31,15 @@ extern const std::string CLIENT_DATE;
 // network protocol versioning
 //
 
+// to be reverted to 6000x in the future builds
 static const int PROTOCOL_VERSION = 70000;
 
 // earlier versions not supported as of Feb 2012, and are disconnected
 static const int MIN_PROTO_VERSION = 209;
 
+// to be replaced by PROTOCOL_VERSION in the future builds
 static const int RETAR_PROTO_VERSION = 70000;
+
 // nTime field added to CAddress, starting with this version;
 // if possible, avoid requesting addresses nodes older than this
 static const int CADDR_TIME_VERSION = 31402;
