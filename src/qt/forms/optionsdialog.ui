@@ -33,7 +33,7 @@
        <item>
         <widget class="QLabel" name="transactionFeeInfoLabel">
          <property name="text">
-          <string>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.01 recommended.</string>
+          <string>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 0.1 recommended.</string>
          </property>
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
@@ -79,10 +79,10 @@
        <item>
         <widget class="QCheckBox" name="bitcoinAtStartup">
          <property name="toolTip">
-          <string>Automatically start Phenixcoin after logging in to the system.</string>
+          <string>Automatically start Phoenixcoin after logging in to the system.</string>
          </property>
          <property name="text">
-          <string>&amp;Start Phenixcoin on system login</string>
+          <string>&amp;Start Phoenixcoin on system login</string>
          </property>
         </widget>
        </item>
@@ -119,20 +119,20 @@
        <item>
         <widget class="QCheckBox" name="mapPortUpnp">
          <property name="toolTip">
-          <string>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
+          <string>Automatically open a port on on a UPnP capable router.</string>
          </property>
          <property name="text">
-          <string>Map port using &amp;UPnP</string>
+          <string>Map a port using &amp;UPnP</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="connectSocks">
          <property name="toolTip">
-          <string>Connect to the Litecoin network through a SOCKS proxy (e.g. when connecting through Tor).</string>
+          <string>Connect to the network through a SOCKS proxy (e.g. when connecting through Tor).</string>
          </property>
          <property name="text">
-          <string>&amp;Connect through SOCKS proxy:</string>
+          <string>&amp;Connect through a SOCKS proxy:</string>
          </property>
         </widget>
        </item>
@@ -248,20 +248,20 @@
        <item>
         <widget class="QCheckBox" name="minimizeToTray">
          <property name="toolTip">
-          <string>Show only a tray icon after minimizing the window.</string>
+          <string>Show only a tray icon after minimising the window.</string>
          </property>
          <property name="text">
-          <string>&amp;Minimize to the tray instead of the taskbar</string>
+          <string>&amp;Minimise to the tray instead of the taskbar</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="minimizeOnClose">
          <property name="toolTip">
-          <string>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</string>
+          <string>Minimise instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</string>
          </property>
          <property name="text">
-          <string>M&amp;inimize on close</string>
+          <string>M&amp;inimise on close</string>
          </property>
         </widget>
        </item>
@@ -303,7 +303,7 @@
          <item>
           <widget class="QValueComboBox" name="lang">
            <property name="toolTip">
-            <string>The user interface language can be set here. This setting will take effect after restarting Litecoin.</string>
+            <string>The user interface language can be set here. This setting will take effect after restarting Phoenixcoin.</string>
            </property>
           </widget>
          </item>
@@ -336,7 +336,7 @@
        <item>
         <widget class="QCheckBox" name="displayAddresses">
          <property name="toolTip">
-          <string>Whether to show Litecoin addresses in the transaction list or not.</string>
+          <string>Whether to show Phoenixcoin addresses in the transaction list or not.</string>
          </property>
          <property name="text">
           <string>&amp;Display addresses in transaction list</string>

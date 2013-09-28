@@ -108,7 +108,7 @@ void AskPassphraseDialog::accept()
                 if(model->setWalletEncrypted(true, newpass1))
                 {
                     QMessageBox::warning(this, tr("Wallet encrypted"),
-                                         tr("Phenixcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your phenixcoins from being stolen by malware infecting your computer."));
+                                         tr("Phoenixcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PXC from being stolen by malware infecting your computer."));
                     QApplication::quit();
                 }
                 else

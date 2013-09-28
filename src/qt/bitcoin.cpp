@@ -109,7 +109,7 @@ static std::string Translate(const char* psz)
 static void handleRunawayException(std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
-    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occured. Phenixcoin can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
+    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occured. Phoenixcoin can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
     exit(1);
 }
 
@@ -169,12 +169,12 @@ int main(int argc, char *argv[])
 
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
-    app.setOrganizationName("Phenixcoin");
-    app.setOrganizationDomain("phenixcoin.com");
+    app.setOrganizationName("Phoenixcoin");
+    app.setOrganizationDomain("phoenixcoin.org");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
-        app.setApplicationName("Phenixcoin-Qt-testnet");
+        app.setApplicationName("Phoenixcoin-Qt-testnet");
     else
-        app.setApplicationName("Phenixcoin-Qt");
+        app.setApplicationName("Phoenixcoin-Qt");
 
     // ... then GUI settings:
     OptionsModel optionsModel;
