@@ -296,7 +296,7 @@ void ThreadIRCSeed2(void* parg)
             Send(hSocket, "JOIN #phoenixcoinTEST3\r");
             Send(hSocket, "WHO #phoenixcoinTEST3\r");
         } else {
-            // randomly join #phenixcoin00-#phenixcoin99
+            // randomly join #phoenixcoin00-#phoenixcoin99
             // int channel_number = GetRandInt(100);
             int channel_number = 0;
             Send(hSocket, strprintf("JOIN #phoenixcoin%02d\r", channel_number).c_str());

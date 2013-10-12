@@ -78,7 +78,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    if(uri.scheme() != QString("phenixcoin"))
+    if(uri.scheme() != QString("phoenixcoin"))
         return false;
 
     // check if the address is valid
@@ -128,13 +128,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert phenixcoin:// to phenixcoin:
+    // Convert phoenixcoin:// to phoenixcoin:
     //
-    //    Cannot handle this later, because phenixcoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because phoenixcoin:// will cause Qt to see the part after // as host,
     //    which will lowercase it (and thus invalidate the address).
-    if(uri.startsWith("phenixcoin://"))
+    if(uri.startsWith("phoenixcoin://"))
     {
-        uri.replace(0, 11, "phenixcoin:");
+        uri.replace(0, 11, "phoenixcoin:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -360,7 +360,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "phenixcoin.desktop";
+    return GetAutostartDir() / "phoenixcoin.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -425,7 +425,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
     header = tr("Phoenixcoin-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  phenixcoin-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  phoenixcoin-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 

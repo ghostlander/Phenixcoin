@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
     // Do this early as we don't want to bother initializing if we are just calling IPC
     for (int i = 1; i < argc; i++)
     {
-        if (boost::algorithm::istarts_with(argv[i], "phenixcoin:"))
+        if (boost::algorithm::istarts_with(argv[i], "phoenixcoin:"))
         {
             const char *strURI = argv[i];
             try {
@@ -278,7 +278,7 @@ int main(int argc, char *argv[])
                 // Check for URI in argv
                 for (int i = 1; i < argc; i++)
                 {
-                    if (boost::algorithm::istarts_with(argv[i], "phenixcoin:"))
+                    if (boost::algorithm::istarts_with(argv[i], "phoenixcoin:"))
                     {
                         const char *strURI = argv[i];
                         try {
